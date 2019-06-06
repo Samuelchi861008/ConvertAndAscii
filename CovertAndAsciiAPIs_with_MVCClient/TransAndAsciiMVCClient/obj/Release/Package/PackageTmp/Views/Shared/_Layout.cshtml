@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>Samuel's Projects</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        /* 設定 body 背景顏色 */
+        body {
+            background-color: rgb(243,253,244) !important;
+        }
+
+        /* 設定 navbar 背景顏色 */
+        .navbar {
+            background-color: rgb(91,192,168) !important;
+        }
+
+        /* 設定 navbar 最左邊標題的顏色、大小、粗體 */
+        .navbar .navbar-brand {
+            color: #fff !important;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* 設定 navbar 標籤的顏色、大小、粗體 */
+        .navbar li a {
+             color: #fff !important;
+             font-size: 15px;
+             font-weight: bold;
+        }
+
+        /* 設定 navbar 標籤當被滑鼠碰觸時的變化 */
+        .navbar-nav li a:hover, .navbar-nav li.active a {
+            color: #f4511e !important;
+            background-color: #fff !important;
+        }
+
+        /* 項目側邊標籤 */
+        .label-warning {
+            background-color: rgb(166,142,118) !important;
+            border-radius: 5px;
+        }
+
+        /* 各個按鈕 */
+        .btn-success {
+            background-color: rgb(123,139,111) !important;
+            border: none;
+            font-weight: bold;
+        }
+
+        /* 選擇進位選項 */
+        .label-info {
+            background-color: rgb(146,172,209) !important;
+            border-radius: 5px;
+        }
+
+        /* 每頁主題標籤 */
+        .label-danger {
+            background-color: rgb(236,110,69) !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <!-- 當螢幕大小較小時，將 navbar 標籤統整集中 -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- navbar 最左邊標題 -->
+                @Html.ActionLink("Convert & Ascii", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <!-- navbar 標籤，若螢幕大小較小時將集中 -->
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("首頁", "Index", "Home")</li>
+                    <li>@Html.ActionLink("進制轉換", "Trans", "Home")</li>
+                    <li>@Html.ActionLink("Ascii轉換", "Ascii", "Home")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <footer style="width:100%; height: 20px; position:absolute; bottom:0px; left:0%">
+            <!-- footer copyright -->
+            <a href="https://github.com/Samuelchi861008" target="_blank" style="text-decoration:none;"><font color="#000" size="1">Copyright &copy; 2019 Samuel Chi All rights reserved.</font></a>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
